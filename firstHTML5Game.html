@@ -71,7 +71,7 @@ function create() {
     game.physics.arcade.enable(player);
     
     //Player physics properties. Give the little guy a slight bounce.
-    player.body.bounce.y = 0;
+    player.body.bounce.y = 0.2;
     player.body.gravity.y = 300;
     player.body.collideWorldBounds = true;
     
@@ -92,8 +92,8 @@ function create() {
         //Let gravity do its thing 
         star.body.gravity.y = 3;
         
-        // This just gives each star a slightly random bounce value
-        star.body.bounce.y = 0.7 + Math.random();
+        // This just gives each star a slight bounce
+        star.body.bounce.y = 0.2;
     }
     
     
@@ -141,7 +141,7 @@ function update() {
     //  Allow the player to jump if they are touching the ground.
     if (cursors.up.isDown && player.body.touching.down)
     {
-        player.body.velocity.y = -300;
+        player.body.velocity.y = -350;
     }
 }
     
