@@ -1,0 +1,70 @@
+
+#message {
+	text-align: center;
+}
+
+#userForm p{
+	text-align: center;
+	font-size: 250%;
+}
+
+
+#matches {
+	text-align: center;
+}
+
+#header p {
+	text-align: center;
+}
+
+#header h1 {
+	text-align: center;
+}
+
+#header ul {
+	text-align: center;
+	list-style-type: none;
+	
+}
+#header ul li {
+	 display: inline;
+	 padding: 50px;
+}
+
+
+#round {
+	text-align: center;
+}
+
+#playerScore {
+	color: red;
+
+}
+
+#computerScore {
+	color: blue;
+}
+
+#computer {
+	float: right;
+	padding-right: 200px;
+	padding-top: 25px;
+	color: blue;
+}
+
+#player {
+	float: left;
+	padding-left: 200px;
+	padding-top: 25px;
+	color: red;
+}
+
+#footer {
+	clear: both;
+	text-align: center;
+}
+
+
+
+	
+	

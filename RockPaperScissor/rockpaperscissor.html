@@ -1,0 +1,107 @@
+<!DOCTYPE  html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+ 		<title>ROCK PAPER SCISSOR!!</title>
+		<link rel="stylesheet" type="text/css" href="rockpaperscissor.css">
+	</head>
+
+	<body id="home">
+		<div id="header">
+			<p>Round</p>
+			<p id="round">0</p>
+			<ul>
+				<li>Player's Score</li>
+				<li>Tie</li>
+				<li>Computer's Score</li>
+			</ul>		
+			<ul id="score">
+				<li id="playerScore">0</li>
+				<li id="tie">0</li>
+				<li id="computerScore">0</li>
+			</ul>
+			
+		</div>
+		<div id="userForm">
+			<form id="matches">
+				How many matches do you want to play?<br>
+				<input type="text" id="maxMatches" value="">
+				<br>
+			</form>
+		</div>
+	<div id="player">
+	<pre id="rock">
+		  Rock
+          _______
+      ---'   ____)
+            (_____)
+            (_____)
+            (____)
+      ---.__(___)
+      
+      </pre>
+      <pre id="paper">
+          Paper
+          _______
+      ---'   ____)____
+                ______)
+                _______)
+              _______)
+      ---.__________)
+	</pre>
+	<pre id="scissor">
+    Scissors
+          _______
+      ---'   ____)____
+                ______)
+             __________)
+            (____)
+      ---.__(___)
+    </pre>
+    </div>
+    
+    <div id="computer">
+	<pre id="rock1">
+		  Rock
+          _______
+      ---'   ____)
+            (_____)
+            (_____)
+            (____)
+      ---.__(___)
+      
+      </pre>
+      <pre id="paper1">
+          Paper
+          _______
+      ---'   ____)____
+                ______)
+                _______)
+              _______)
+      ---.__________)
+      
+	</pre>
+	<pre id="scissor1">
+    Scissors
+          _______
+      ---'   ____)____
+                ______)
+             __________)
+            (____)
+      ---.__(___)
+      
+    </pre>
+    </div>
+    <div>
+		<h1 id="message"></h1>
+	</div>
+    
+		<div id="footer">
+		
+      		<p><button type="button" onclick="newGame()" >NEW GAME!</button></p>
+		</div>
+ 	
+  	<script src="rockpaperscissor.js"></script>
+	</body>
+	
+</html>
