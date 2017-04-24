@@ -1,9 +1,9 @@
 ## Portfolio
 
-1.[platformer/platformer.html](HTML 5: Platforming Game)
+1.[HTML 5: Platforming Game](platformer/platformer.html)
 
-2.[FirstHTML5game/firstHTML5Game.html](HTML 5: first game)
+2.[HTML 5: first game](FirstHTML5game/firstHTML5Game.html)
 
-3.[RockPaperScissor/rockpaperscissor.html](JavaScript: Rock Paper Scissor)
+3.[JavaScript: Rock Paper Scissor](RockPaperScissor/rockpaperscissor.html)
 
-4.[TicTacToe/index.html](JavaScript: Tic Tac Toe)
+4.[JavaScript: Tic Tac Toe](TicTacToe/index.html)
