@@ -1,0 +1,135 @@
+<html>
+	<head>
+	<title> Pong </title>
+	<script type="text/javascript" src="js/phaser.js"></script>
+	<style type = "text/css">
+		
+	canvas{
+		margin: 0 AUTO;
+	}
+	</style>
+	</head>
+
+	<body>
+		<script type = "text/javascript">
+			var game = new Phaser.Game(800, 600, Phaser.AUTO, '', {
+				preload: preload, 
+				create: create, 
+				update: update});
+
+			var paddle1;
+			var paddle2;
+			var ball;
+
+			var didBallLaunched;
+			var ballVelocity;
+
+			var score1_text;
+			var score2_text;
+
+			var score1;
+			var score2;
+
+			function preload() {
+				game.load.image('paddle', 'assets/paddle.png');
+				game.load.image('ball', 'assets/ball.png');
+
+				game.load.bitmapFont('font', 'assets/eightbitwonder.png', 'assets/eightbitwonder.fnt');
+
+				game.load.audio('hit1', 'assets/blip.wav');
+				game.load.audio('hit2', 'assets/bloop.wav');
+			}
+
+			function create() {
+				didBallLaunched = false;
+				ballVelocity = 400;
+
+				paddle1 = createPaddle(0, game.world.centerY);
+				paddle2 = createPaddle(game.world.width - 8, game.world.centerY);
+				ball = createBall(game.world.centerX, game.world.centerY);
+
+				game.input.onDown.add(launchBall, this);
+
+				score1_text = game.add.bitmapText(96, 96, 'font', "0", 32);
+				score2_text = game.add.bitmapText(game.world.width - 128, 96, 'font', "0" , 32);
+
+				score1 = 0;
+				score2 = 0;
+
+				
+			}
+			
+			function update() {
+
+				score1_text.text = score1;
+				score2_text.text = score2;
+
+				controlPaddle(paddle1, game.input.y);
+				game.physics.arcade.collide(paddle1, ball, function() {
+					game.sound.play('hit1');
+				});
+				game.physics.arcade.collide(paddle2, ball, function() {
+					game.sound.play('hit2');
+				});
+
+				if(ball.body.blocked.left) {
+					score2++;
+				}
+				else if (ball.body.blocked.right) {
+					score1++;
+				}
+
+				paddle2.body.velocity.setTo(ball.body.velocity.y);
+				paddle2.body.velocity.x = 0;
+				paddle2.body.maxVelocity.y = 250;
+
+			}
+
+			function createPaddle(x, y) {
+				var paddle = game.add.sprite(x, y, 'paddle');
+				paddle.anchor.setTo(0.5, 0.5);
+				game.physics.arcade.enable(paddle);
+				paddle.body.collideWorldBounds = true;
+				paddle.body.immovable = true;
+				paddle.scale.setTo(0.5, 0.5);
+
+				return paddle;
+			}
+
+			function controlPaddle(paddle, y) {
+				paddle.y = y;
+
+				if(paddle.y < paddle.height / 2) {
+					paddle.y = paddle.height / 2;
+				}
+				else if (paddle.y > game.world.height - paddle.height / 2) {
+					paddle.y = game.world.height - paddle.height / 2;
+				}
+			}
+
+			function createBall(x, y) {
+				var ball = game.add.sprite(x, y, 'ball');
+				ball.anchor.setTo(0.5,0.5);
+				game.physics.arcade.enable(ball);
+				ball.body.collideWorldBounds = true;
+				ball.body.bounce.setTo(1,1);
+
+				return ball;
+			}
+
+			function launchBall() {
+				if(didBallLaunched) {
+					ball.x = game.world.centerX;
+					ball.y = game.world.centerY;
+					ball.body.velocity.setTo(0,0);
+					didBallLaunched = false;
+				}
+				else {
+					ball.body.velocity.x = -ballVelocity;
+					ball.body.velocity.y = ballVelocity;
+					didBallLaunched = true;
+				}
+			}
+		</script>
+	</body>
+</html>
